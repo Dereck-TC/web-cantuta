@@ -28,6 +28,7 @@
     <script src="<?= media(); ?>/js/bootstrap.min.js"></script>
     <script src="<?= media(); ?>/js/main.js"></script>
 <!-- Data table plugin-->
+  <script type="text/javascript" src="<?= media();?>/js/plugins/bootstrap-select.min.js"></script>
 
     <!-- DataTables  & Plugins -->
     <script src="<?= media(); ?>/plugins/datatables/jquery.dataTables.min.js"></script>

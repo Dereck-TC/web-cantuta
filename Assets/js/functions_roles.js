@@ -46,8 +46,7 @@ document.addEventListener('DOMContentLoaded', function(){
         request.open("POST",ajaxUrl,true);
         request.send(formData);
         request.onreadystatechange = function(){
-           if(request.readyState == 4 && request.status == 200){
-                
+           if(request.readyState == 4 && request.status == 200){              
                 var objData = JSON.parse(request.responseText);
                 if(objData.status)
                 {
@@ -157,8 +156,8 @@ function fntDelRol(idrol){
                     {
                         swal("Eliminar!", objData.msg , "success");
                         tableRoles.api().ajax.reload(function(){
-                            fntEditRol();
-                            fntDelRol();
+                            // fntEditRol();
+                            // fntDelRol();
                             //fntPermisos();
                         });
                     }else{

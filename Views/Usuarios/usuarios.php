@@ -1,6 +1,6 @@
 <?php 
     headerAdmin($data); 
-    //getModal('modalCategorias',$data);
+    getModal('modalUsuarios',$data);
 ?>
     <div class="content-wrapper">
     <!-- Content Header (Page header) -->

@@ -11,6 +11,7 @@
             $this->views->getView($this,"usuarios",$data);
         }
         public function setUsuario(){
+			//dep($_POST);
 			if($_POST){			
 				if(empty($_POST['txtIdentificacion']) || empty($_POST['txtNombre']) || empty($_POST['txtApellido']) || empty($_POST['txtTelefono']) || empty($_POST['txtEmail']) || empty($_POST['listRolid']) || empty($_POST['listStatus']) )
 				{
@@ -30,7 +31,7 @@
 						$option = 1;
 						$strPassword =  empty($_POST['txtPassword']) ? hash("SHA256",passGenerator()) : hash("SHA256",$_POST['txtPassword']);
 
-						if($_SESSION['permisosMod']['w']){
+					//	if($_SESSION['permisosMod']['w']){
 							$request_user = $this->model->insertUsuario($strIdentificacion,
 																				$strNombre, 
 																				$strApellido, 
@@ -39,11 +40,11 @@
 																				$strPassword, 
 																				$intTipoId, 
 																				$intStatus );
-						}
+					//	}
 					}else{
 						$option = 2;
 						$strPassword =  empty($_POST['txtPassword']) ? "" : hash("SHA256",$_POST['txtPassword']);
-						if($_SESSION['permisosMod']['u']){
+						//if($_SESSION['permisosMod']['u']){
 							$request_user = $this->model->updateUsuario($idUsuario,
 																		$strIdentificacion, 
 																		$strNombre,
@@ -53,7 +54,7 @@
 																		$strPassword, 
 																		$intTipoId, 
 																		$intStatus);
-						}
+						//}
 
 					}
 
@@ -106,7 +107,7 @@
 		}
 
 		public function getUsuario($idpersona){
-			if($_SESSION['permisosMod']['r']){
+			//if($_SESSION['permisosMod']['r']){
 				$idusuario = intval($idpersona);
 				if($idusuario > 0)
 				{
@@ -119,14 +120,14 @@
 					}
 					echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
 				}
-			}
+			//}
 			die();
 		}
 
 		public function delUsuario()
 		{
 			if($_POST){
-				if($_SESSION['permisosMod']['d']){
+				//if($_SESSION['permisosMod']['d']){
 					$intIdpersona = intval($_POST['idUsuario']);
 					$requestDelete = $this->model->deleteUsuario($intIdpersona);
 					if($requestDelete)
@@ -136,7 +137,7 @@
 						$arrResponse = array('status' => false, 'msg' => 'Error al eliminar el usuario.');
 					}
 					echo json_encode($arrResponse,JSON_UNESCAPED_UNICODE);
-				}
+				//}
 			}
 			die();
 		}
